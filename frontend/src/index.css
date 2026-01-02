@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  /* Color Hunt Palette: #061E29, #1D546D, #5F9598, #F3F4F4 */
+  --color-primary: #061e29;
+  --color-primary-light: #1d546d;
+  --color-accent: #5f9598;
+
+  --color-bg-app: #f3f4f4;
+  --color-bg-card: #ffffff;
+
+  --color-text-main: #061e29;
+  --color-text-muted: #5f9598;
+
+  --border-color: #d1d5db;
+
+  --font-main: "Inter", sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-bg-app);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors border focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed;
+    border-radius: var(--radius-sm);
+  }
+
+  .btn-primary {
+    @apply text-white border-transparent;
+    background-color: var(--color-primary-light);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary);
+  }
+
+  .btn-secondary {
+    @apply bg-white border-gray-300;
+    color: var(--color-primary-light);
+  }
+  .btn-secondary:hover {
+    @apply bg-gray-50;
+    color: var(--color-primary);
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white border-transparent hover:bg-red-700 focus:ring-red-600;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 text-sm bg-white border border-gray-300 transition-colors placeholder-gray-400 focus:outline-none focus:ring-2;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-main);
+    /* Focus colors */
+    border-color: var(--color-accent);
+    --tw-ring-color: var(--color-accent);
+  }
+
+  .card {
+    @apply bg-white border border-gray-200 p-6;
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .title-lg {
+    @apply text-2xl font-semibold;
+    color: var(--color-primary);
+  }
+
+  /* Table Styles */
+  table {
+    @apply w-full border-collapse text-sm;
+  }
+  th {
+    @apply p-3 text-left font-semibold;
+    background-color: var(--color-primary);
+    color: white;
+  }
+  td {
+    @apply border-b border-gray-100 p-3;
+    color: var(--color-primary);
+  }
+  tr:last-child td {
+    @apply border-b-0;
+  }
+  tr:hover td {
+    background-color: rgba(95, 149, 152, 0.1);
+  }
+}
